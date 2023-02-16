@@ -1,13 +1,28 @@
-import React, { useCallback, useState } from 'react';
-import { ImageBackground, View } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Alert, ImageBackground, View } from 'react-native';
 import { Text, TextInput } from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button } from '../../components';
+import { UsersController } from '../../controllers';
 import styles from './Login.styles';
+import { NAVIGATION } from '../../constants';
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const asyncFunction = async () => {
+      const token = await AsyncStorage.getItem('token');
+      if (token) {
+        // await AsyncStorage.removeItem('token');
+         navigation.navigate(NAVIGATION.main);
+      }
+    };
+    asyncFunction();
+  }, []);
 
   const validateEmail = useCallback(() => {
     const isValidEmail = String(username)
@@ -25,6 +40,19 @@ const Login = () => {
   const onChangeUsername = useCallback((text) => setUsername(text), []);
   const onChangePassword = useCallback((text) => setPassword(text), []);
 
+  const login = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const token = await UsersController.login(username, password);
+      await AsyncStorage.setItem('token', token);
+       navigation.navigate(NAVIGATION.main);
+    } catch (error) {
+      Alert.alert('Invalid username or password');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [username, password]);
+
   return (
     <View style={styles.container}>
       <ImageBackground 
@@ -32,8 +60,9 @@ const Login = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <Text style={styles.text}>Login</Text>
+        
         <View style={styles.form}>
+        <Text style={styles.text}>Welcome!</Text>
           <TextInput
             mode="flat"
             label="Username"
@@ -55,7 +84,7 @@ const Login = () => {
             contentStyle={styles.inputText}
             secureTextEntry
           />
-          <Button style={styles.button} mode="contained" title="LOGIN" onPress={() => {}} />
+          <Button style={styles.button} mode="contained" title="LOGIN" onPress={login} loading={isLoading} />
         </View>
       </ImageBackground>
     </View>

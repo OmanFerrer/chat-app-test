@@ -10,7 +10,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   form: {
+    marginHorizontal: 20,
     paddingHorizontal: 20,
+    paddingBottom: 25,
+    backgroundColor: '#000000c0',
+    borderRadius:10,
   },
   text: {
     ...TextStyles.boldText,
@@ -21,7 +25,7 @@ const styles = StyleSheet.create({
   },
   textError: {
     ...TextStyles.regularText,
-    color: 'red',
+    color: 'white',
     fontSize: 16,
     marginTop: 10,
   },

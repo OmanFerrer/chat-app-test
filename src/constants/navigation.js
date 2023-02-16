@@ -3,4 +3,5 @@ export default {
   chatScreen: 'Chat',
   settingScreen: 'Settings',
   loginScreen: 'Login',
+  main: 'Main',
 };

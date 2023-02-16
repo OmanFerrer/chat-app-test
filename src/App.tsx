@@ -7,17 +7,15 @@
 
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import AuthNavigator from './navigation/AuthNavigator';
-import TabNavigator from './navigation/TabNavigator';
+import AppNavigator from './navigation/AppNavigator';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { theme } from './theme';
 
 function App(): JSX.Element {
-  const isLogged = false;
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        {isLogged ? <TabNavigator /> : <AuthNavigator />}
+        <AppNavigator />
       </NavigationContainer>
     </PaperProvider>
   );
