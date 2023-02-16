@@ -11,6 +11,10 @@ Simple chat app with React Native and Socket.io
 
 Socket.io is added to `server/` folder.
 
+## Authentication and Users data
+
+The `https://reqres.in/` API was used for app authentication and list users information. For app login, use any of the API users.
+
 ## Screenshots
 
 <img width="349" alt="login" src="https://user-images.githubusercontent.com/7102601/219359282-d609d3ea-4bbe-4fb6-b141-2ba70a208bd6.png">
