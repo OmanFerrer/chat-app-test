@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1066547678849",
+    "firebase_url": "https://rn-tutorial-firebase.firebaseio.com",
+    "project_id": "rn-tutorial-firebase",
+    "storage_bucket": "rn-tutorial-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066547678849:android:bdaa504d42f93e39bd0780",
+        "android_client_info": {
+          "package_name": "com.cpadminapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066547678849-q4ij9qu4khfvblfris5joen3gtds0dm5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyE5sEf30UDML5jGAFiBcNNsboOkmtUd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1066547678849-q4ij9qu4khfvblfris5joen3gtds0dm5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
