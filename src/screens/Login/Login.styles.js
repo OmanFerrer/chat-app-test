@@ -19,6 +19,12 @@ const styles = StyleSheet.create({
     lineHeight: 84,
     textAlign: 'center',
   },
+  textError: {
+    ...TextStyles.regularText,
+    color: 'red',
+    fontSize: 16,
+    marginTop: 10,
+  },
   input: {
     marginTop: 20,
   },

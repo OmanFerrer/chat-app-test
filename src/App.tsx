@@ -13,11 +13,11 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { theme } from './theme';
 
 function App(): JSX.Element {
-
+  const isLogged = false;
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        {true ? <AuthNavigator /> : <TabNavigator />}
+        {isLogged ? <TabNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </PaperProvider>
   );
