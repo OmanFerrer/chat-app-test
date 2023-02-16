@@ -44,6 +44,7 @@ const Login = ({ navigation }) => {
     try {
       const token = await UsersController.login(username, password);
       await AsyncStorage.setItem('token', token);
+      await AsyncStorage.setItem('username', username);
        navigation.navigate(NAVIGATION.main);
     } catch (error) {
       Alert.alert('Invalid username or password');

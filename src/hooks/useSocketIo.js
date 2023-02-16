@@ -6,8 +6,7 @@ const socket = io('http://localhost:4000', {
 });
 
 const useSocketIo = () => {
-  const [isConnected, setIsConnected] = useState(socket.connected);
-  const [lastPong, setLastPong] = useState(null);
+  const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
     socket.on('connect', () => {
@@ -18,14 +17,9 @@ const useSocketIo = () => {
       setIsConnected(false);
     });
 
-    socket.on('pong', () => {
-      setLastPong(new Date().toISOString());
-    });
-
     return () => {
       socket.off('connect');
       socket.off('disconnect');
-      socket.off('pong');
     };
   }, []);
 
@@ -33,7 +27,7 @@ const useSocketIo = () => {
     socket.connect();
   };
 
-  return { isConnected, lastPong, connect };
+  return { isConnected, connect, socket };
 }
 
 export default useSocketIo;

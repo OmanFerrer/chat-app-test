@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
 import { FlatList, SafeAreaView, View } from 'react-native';
 import { Text } from 'react-native-paper';
@@ -12,7 +13,9 @@ const Home = () => {
     const getUsers = async () => {
       try {
         const response = await UsersController.getUsers();
-        setUsers(response);
+        const currentUsername = await AsyncStorage.getItem('username');
+        const userList = response.filter(user => user.email != currentUsername);
+        setUsers(userList);
       } catch (error) {
         console.log(error);
       }
