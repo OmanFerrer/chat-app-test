@@ -20,7 +20,22 @@ const styles = StyleSheet.create({
   chatContainer: {
     flex: 1,
   },
+  inputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  input: {
+    width: '86%',
+    marginBottom: 10,
+    backgroundColor: 'white',
+  },
+  inputText: {
+    ...TextStyles.regularText,
+    fontSize: 16,
+    color: '#1e1c1c',
+  },
   joinButton: {
+    marginBottom: 20,
     marginHorizontal: 50,
   },
 });
