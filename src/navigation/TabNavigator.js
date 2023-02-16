@@ -1,4 +1,4 @@
-import { Home } from '../screens';
+import { Chat, Home } from '../screens';
 import PurchaseSVG from '../assets/icons/purchase.svg';
 import InventorySVG from '../assets/icons/inventory.svg';
 import PartnerSVG from '../assets/icons/partner.svg';
@@ -24,11 +24,11 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name={NAVIGATION.chatScreen}
-        component={Home}
+        component={Chat}
         options={{
           title: 'Chat',
           headerShown: false,
-          tabBarIcon: ({ focused }) => <InventorySVG fill={focused ? theme.colors.primary : '#000'} width="30" height="30" />,
+          tabBarIcon: ({ focused }) => <PartnerSVG fill={focused ? theme.colors.primary : '#000'} width="30" height="30" />,
         }}
       />
       <Tab.Screen

@@ -17,7 +17,6 @@ const Login = ({ navigation }) => {
     const asyncFunction = async () => {
       const token = await AsyncStorage.getItem('token');
       if (token) {
-        // await AsyncStorage.removeItem('token');
          navigation.navigate(NAVIGATION.main);
       }
     };
